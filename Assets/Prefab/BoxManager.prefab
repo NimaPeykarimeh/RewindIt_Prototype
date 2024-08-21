@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6564810750042061642
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6107042580080337081}
+  - component: {fileID: 3597722711945635490}
+  m_Layer: 0
+  m_Name: BoxManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6107042580080337081
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564810750042061642}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3597722711945635490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6564810750042061642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92ac455cecdca64fac04583a89be58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxTypeList:
+  - typeName: 1
+    typeMaterial: {fileID: 2100000, guid: 4e2c140ac6b6dac488b48aa8cd2efab2, type: 2}
+    ringMaterial: {fileID: 2100000, guid: db2bbb44aed032648b55875e49196718, type: 2}
+  - typeName: 2
+    typeMaterial: {fileID: 2100000, guid: 89f75fee74fb9b84585518206e3a69e3, type: 2}
+    ringMaterial: {fileID: 2100000, guid: b5300f5779aef8a4f8f8a87b87d083f9, type: 2}
+  - typeName: 3
+    typeMaterial: {fileID: 2100000, guid: dd1d2de4c120b3b4f907a65aa2c62d13, type: 2}
+    ringMaterial: {fileID: 2100000, guid: 3115231fee2512d46a5385ddff067e3f, type: 2}
+  - typeName: 4
+    typeMaterial: {fileID: 2100000, guid: 1e27b275610a7e24cbd301d2ccc4cc58, type: 2}
+    ringMaterial: {fileID: 2100000, guid: 460ba577c2352ca4d83d5035b9035c08, type: 2}
+  - typeName: 5
+    typeMaterial: {fileID: 2100000, guid: dd4a1793c0de8854ea4b286506c6b82b, type: 2}
+    ringMaterial: {fileID: 2100000, guid: 9f10f47c50eaf5342b5d3ce821f1fd8b, type: 2}
+  - typeName: 6
+    typeMaterial: {fileID: 2100000, guid: 351d1ed1c34b3ea4da797e35d0a8f676, type: 2}
+    ringMaterial: {fileID: 2100000, guid: 975bb749589768448a21ce5ce3280e4b, type: 2}
