@@ -21,12 +21,17 @@ public class RewindObject : MonoBehaviour
     Vector3 rot1;
     [SerializeField] Vector3 rotVelocity;
     [SerializeField] Vector3 currentRot;
+
+
+    [SerializeField] LineRenderer lineRenderer;
+    Vector3 posOrigin;
     public void Start()
     {
         pointsInTime = new List<PointInTime>();
         rb = GetComponent<Rigidbody>();
         rewindTime = 15f;
         rewindEffect.Stop();
+        lineRenderer.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -91,10 +96,20 @@ public class RewindObject : MonoBehaviour
             //pos1 = transform.position;
             //rot1 = transform.rotation.eulerAngles;
             pointsInTime.RemoveAt(0);
-            //velocity = (pointInTime2.position- pointInTime.position) / Time.fixedDeltaTime;
-            velocity = -pointInTime.velocity;
+
+            velocity = (pointInTime2.position- pointInTime.position) / Time.fixedDeltaTime;
+            //velocity = -pointInTime.velocity;
+            
             rb.linearVelocity = velocity;
             //rotVelocity = (rot1 - rot0);
+            
+            for (int i = 0; i < pointsInTime.Count; i++)
+            {
+                lineRenderer.positionCount = pointsInTime.Count;
+                lineRenderer.SetPosition(i, pointsInTime[i].position);
+
+            }
+            
         }
         else
         {
@@ -109,6 +124,8 @@ public class RewindObject : MonoBehaviour
         //rb.isKinematic = true;
         rb.useGravity = false;
         rewindEffect.Play();
+        posOrigin= transform.position;
+        lineRenderer.gameObject.SetActive(true);
     }
 
     public void StopRewind()
@@ -118,6 +135,7 @@ public class RewindObject : MonoBehaviour
         //rb.isKinematic = false;
         rb.useGravity = true;
         rb.linearVelocity = -velocity;
+        lineRenderer.gameObject.SetActive(false);
         //rb.angularVelocity = -rotVelocity;
     }
 }
