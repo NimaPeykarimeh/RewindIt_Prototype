@@ -102,7 +102,7 @@ Material:
     - _NormalSTR: 0.93
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.707
+    - _Smoothness: 0.7
     m_Colors:
     - _BaseColor: {r: 0.7411765, g: 0.2627451, b: 0.20392157, a: 0}
     - _BaseColor_1: {r: 0.6792453, g: 0.21251836, b: 0.16981132, a: 1}

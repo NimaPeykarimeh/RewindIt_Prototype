@@ -23,7 +23,7 @@ public class DepthOfField : MonoBehaviour
         Transform _cam= Camera.main.transform;
         if (Physics.Raycast(_cam.position, _cam.forward,out RaycastHit _hit,Mathf.Infinity,depthLayer))
         {
-            dofEffect.focusDistance.value = Mathf.Lerp(dofEffect.focusDistance.value, _hit.distance, focusSpeed);
+            dofEffect.focusDistance.value = Mathf.Lerp(dofEffect.focusDistance.value, _hit.distance, focusSpeed); // kötü kodlanmýþ -ibrahim
         }
     }
 }

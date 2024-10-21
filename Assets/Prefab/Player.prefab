@@ -478,7 +478,7 @@ MonoBehaviour:
   selected: {fileID: 0}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 65
+    m_Bits: 64
   groundOffset: 0.6
   onGround: 0
   angularVel: 0
@@ -530,6 +530,7 @@ MonoBehaviour:
   rewindDuration: 0
   rewindTimer: 0
   light_Obj: {fileID: 4814466400227191914}
+  allRewindObjects: []
 --- !u!114 &1367261330100945078
 MonoBehaviour:
   m_ObjectHideFlags: 0
