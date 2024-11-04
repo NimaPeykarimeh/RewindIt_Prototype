@@ -7,7 +7,7 @@ LightingSettings:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Bakked
-  serializedVersion: 8
+  serializedVersion: 9
   m_EnableBakedLightmaps: 1
   m_EnableRealtimeLightmaps: 0
   m_RealtimeEnvironmentLighting: 1
@@ -19,8 +19,8 @@ LightingSettings:
   m_LightmapMaxSize: 512
   m_LightmapSizeFixed: 0
   m_UseMipmapLimits: 1
-  m_BakeResolution: 80
-  m_Padding: 5
+  m_BakeResolution: 40
+  m_Padding: 10
   m_LightmapCompression: 0
   m_AO: 1
   m_AOMaxDistance: 1
@@ -34,17 +34,17 @@ LightingSettings:
   m_ExportTrainingData: 0
   m_EnableWorkerProcessBaking: 1
   m_TrainingDataDestination: TrainingData
-  m_RealtimeResolution: 2
+  m_RealtimeResolution: 1
   m_ForceWhiteAlbedo: 0
   m_ForceUpdates: 0
   m_PVRCulling: 1
   m_PVRSampling: 1
-  m_PVRDirectSampleCount: 16
-  m_PVRSampleCount: 4096
-  m_PVREnvironmentSampleCount: 4
+  m_PVRDirectSampleCount: 64
+  m_PVRSampleCount: 512
+  m_PVREnvironmentSampleCount: 32
   m_PVREnvironmentReferencePointCount: 2048
-  m_LightProbeSampleCountMultiplier: 4
-  m_PVRBounces: 4
+  m_LightProbeSampleCountMultiplier: 8
+  m_PVRBounces: 8
   m_PVRMinBounces: 2
   m_PVREnvironmentImportanceSampling: 1
   m_PVRFilteringMode: 1
