@@ -2,89 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RewindObject : MonoBehaviour
+public class RewindObject : Rewindable
 {
-    [SerializeField] bool isRewinding = false;
-    public bool isRewindable = true;
     [SerializeField] ParticleSystem rewindEffect;
-    List<PointInTime> pointsInTime;
-
-    public static float rewindTime = 15f;
-
-    Rigidbody rb;
-
-    Vector3 pos0;
-    Vector3 pos1;
-    Vector3 velocity;
-
-    Vector3 rot0;
-    Vector3 rot1;
-    [SerializeField] Vector3 rotVelocity;
-    [SerializeField] Vector3 currentRot;
-
-
     [SerializeField] LineRenderer lineRenderer;
-    Vector3 posOrigin;
-    public void Start()
+
+    protected override void Start()
     {
-        pointsInTime = new List<PointInTime>();
-        rb = GetComponent<Rigidbody>();
-        rewindTime = 15f;
+        base.Start();
         rewindEffect.Stop();
         lineRenderer.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void StartRewind()
     {
-        //if (Input.GetKeyDown(KeyCode.R))
-        //{
-        //    StartRewind();
-            
-        //}
-        //if (Input.GetKeyUp(KeyCode.R))
-        //{
-        //    StopRewind();
-            
-        //}
+        base.StartRewind();
+        rewindEffect.Play();
+        lineRenderer.gameObject.SetActive(true);
     }
 
-    private void FixedUpdate()
+    public override void StopRewind()
     {
-        if (isRewindable)
-        {
-            if (isRewinding)
-            {
-                Rewind();
-            }
-            else
-            {
-                Record();
-            }
-        }
-        if (isRewinding)
-        {
-            Rewind();
-        }
-        else
-        {
-            Record();
-        }
+        base.StopRewind();
+        rewindEffect.Stop();
+        lineRenderer.gameObject.SetActive(false);
     }
 
-    public void Record()
+    public override void Rewind()
     {
-        if (pointsInTime.Count > Mathf.Round(rewindTime / Time.deltaTime))
-        {
-            pointsInTime.RemoveAt(pointsInTime.Count - 1);
-        }
-
-        pointsInTime.Insert(0, new PointInTime(transform.position, transform.rotation,rb.linearVelocity));
-    }
-
-    public void Rewind()
-    {
-        
         if (pointsInTime.Count > 1)
         {
             //pos0 = transform.position;
@@ -97,58 +42,23 @@ public class RewindObject : MonoBehaviour
             //rot1 = transform.rotation.eulerAngles;
             pointsInTime.RemoveAt(0);
 
-            velocity = (pointInTime2.position- pointInTime.position) / Time.fixedDeltaTime;
+            velocity = (pointInTime2.position - pointInTime.position) / Time.fixedDeltaTime;
             //velocity = -pointInTime.velocity;
-            
+
             rb.linearVelocity = velocity;
             //rotVelocity = (rot1 - rot0);
-            
+
             for (int i = 0; i < pointsInTime.Count; i++)
             {
                 lineRenderer.positionCount = pointsInTime.Count;
                 lineRenderer.SetPosition(i, pointsInTime[i].position);
 
             }
-            
+
         }
         else
         {
             StopRewind();
         }
-
-    }
-
-    public void StartRewind()
-    {
-        isRewinding = true;
-        //rb.isKinematic = true;
-        rb.useGravity = false;
-        rewindEffect.Play();
-        posOrigin= transform.position;
-        lineRenderer.gameObject.SetActive(true);
-    }
-
-    public void StopRewind()
-    {
-        rewindEffect.Stop();
-        isRewinding = false;
-        //rb.isKinematic = false;
-        rb.useGravity = true;
-        rb.linearVelocity = -velocity;
-        lineRenderer.gameObject.SetActive(false);
-        //rb.angularVelocity = -rotVelocity;
-    }
-}
-
-public class PointInTime
-{
-    public Vector3 position;
-    public Quaternion rotation;
-    public Vector3 velocity;
-    public PointInTime(Vector3 _position, Quaternion _rotation, Vector3 _velocity)
-    {
-        position = _position;
-        rotation = _rotation;
-        velocity = _velocity;
     }
 }

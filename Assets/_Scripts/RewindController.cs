@@ -7,11 +7,15 @@ public class RewindController : MonoBehaviour
     [SerializeField] float rewindTimer;
 
     [SerializeField] GameObject light_Obj;
-    [SerializeField] RewindObject[] allRewindObjects;
+    [SerializeField] Rewindable[] allRewindObjects;
 
+    private void Awake()
+    {
+        allRewindObjects = FindObjectsByType<Rewindable>(FindObjectsSortMode.None);
+    }
     private void Start()
     {
-        allRewindObjects = FindObjectsByType<RewindObject>(FindObjectsSortMode.None);
+        
     }
 
     private void Update()
@@ -22,7 +26,7 @@ public class RewindController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            foreach (RewindObject obj in allRewindObjects)
+            foreach (Rewindable obj in allRewindObjects)
             {
                 obj.StartRewind();
             }
@@ -30,7 +34,7 @@ public class RewindController : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.R))
         {
-            foreach (RewindObject obj in allRewindObjects)
+            foreach (Rewindable obj in allRewindObjects)
             {
                 obj.StopRewind();
             }
