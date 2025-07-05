@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class WallBreakController : MonoBehaviour
@@ -11,6 +12,8 @@ public class WallBreakController : MonoBehaviour
     [SerializeField] Quaternion[] originRotation;
     [SerializeField] float breakSpeedLimit = 7f;
     [SerializeField] BoxCollider mainWallCollider;
+    [SerializeField] private RewindableBreakableWall rewindableBreakableWall;
+
 
     private void Start()
     {
@@ -39,6 +42,11 @@ public class WallBreakController : MonoBehaviour
         {
             mainWallCollider.enabled = true;
         }
+    }
+    public bool IsWallFixed()
+    {
+        // Return true if the wall is currently fixed (e.g. baseWall active and brokenWalls inactive)
+        return baseWall.activeSelf && !brokenWalls.Any(w => w.activeSelf);
     }
 
     private void OnTriggerExit(Collider other)//Check Later
@@ -72,6 +80,7 @@ public class WallBreakController : MonoBehaviour
         //}
         //BoxCollider.isTrigger = true;
         BoxCollider.enabled = false;
+        rewindableBreakableWall.InitializeFragmentsAtBreak();
     }
     public void FixWall()
     {
