@@ -68,7 +68,7 @@ Material:
     - _GridScale: 1
     - _Metal_c: 0
     - _NormalScale: 1
-    - _NormalStr: 2
+    - _NormalStr: 0
     - _OverlayAmount: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0

@@ -34,6 +34,8 @@ public class PlayerCamera : MonoBehaviour
     [SerializeField] float verticalMax = 80;
     [SerializeField] float verticalMin = -70f;
     [SerializeField] bool rotateByRB;
+
+    [SerializeField] float delta = 0.01f;
     private void Awake()
     {
         _transform = GetComponent<Transform>();
@@ -73,8 +75,8 @@ public class PlayerCamera : MonoBehaviour
     }
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X")  * sensitivityX * Time.deltaTime * SettingsManager.instance.xSenValue;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivityY * Time.deltaTime * SettingsManager.instance.ySenValue;
+        float mouseX = Input.GetAxis("Mouse X")  * sensitivityX * delta * SettingsManager.instance.xSenValue;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivityY * delta * SettingsManager.instance.ySenValue;
         yRotation += mouseX;
         xRotation -= mouseY;
 

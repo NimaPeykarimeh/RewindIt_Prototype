@@ -42,7 +42,8 @@ RenderSettings:
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 12
+  serializedVersion: 13
+  m_BakeOnSceneLoad: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -2630,10 +2631,6 @@ PrefabInstance:
     - target: {fileID: 4477232202017427854, guid: e5055acaa5b91c44bb68976d3ded99c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4477232202017427858, guid: e5055acaa5b91c44bb68976d3ded99c1, type: 3}
-      propertyPath: groundOffset
-      value: 0.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

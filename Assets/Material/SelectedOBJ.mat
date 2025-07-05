@@ -68,7 +68,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 0
-    - _Size: 1.01
+    - _Size: 1.02
     - _SrcBlend: 1
     - _Surface: 0
     - _WorkflowMode: 0
@@ -78,6 +78,6 @@ Material:
     m_Colors:
     - _NonSelectedColor: {r: 0, g: 0, b: 0, a: 0.43137255}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _SelectedColor: {r: 518.0419, g: 518.0419, b: 518.0419, a: 1}
+    - _SelectedColor: {r: 5.9921575, g: 5.9921575, b: 5.9921575, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
