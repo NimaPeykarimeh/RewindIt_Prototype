@@ -42,7 +42,7 @@ public class RewindableBreakableWall : Rewindable
 
         foreach (var frag in fragments)
         {
-            //if (!frag.gameObject.activeInHierarchy) continue;
+            if (!frag.gameObject.activeInHierarchy) continue;
 
             var list = fragmentPoints[frag];
 
@@ -95,7 +95,7 @@ public class RewindableBreakableWall : Rewindable
             frag.useGravity = false;
     }
 
-    public override void StopRewind()
+    public override void StopRewind()// NOTE: it kind works now, but right after the wall fixes, because the box is stil just next to the wall, it breaks it again.
     {
         base.StopRewind();
 
